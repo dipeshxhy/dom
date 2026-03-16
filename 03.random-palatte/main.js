@@ -36,15 +36,17 @@ function generatePalette(){
   const colorBox = document.createElement('div');
   colorBox.classList.add('color-box');
   colorBox.style.backgroundColor = color;
-  if(selectFormat.value === 'hex' && selectTone.value === 'dark'){
+  if(selectTone.value === 'dark'){
     colorBox.textContent = color;
     colorBox.style.color = '#fff';
+    colorBox.style.fontSize = '12px';
 
-  }else{
-    colorBox.textContent = color;
-    colorBox.style.color = '#000';
-    colorBox.style.textShadow = '1px 1px 2px rgba(0,0,0,0.5)';
-    colorBox.style.fontSize= '12px';
+  }
+  if(selectTone.value === 'light'){
+  colorBox.textContent = color;
+  colorBox.style.color = '#000';
+  colorBox.style.fontSize = '12px';
+
   }
   palette.appendChild(colorBox);
   colorBox.addEventListener('click',()=>{
